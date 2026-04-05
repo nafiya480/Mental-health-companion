@@ -108,6 +108,10 @@ header {
     padding: 15px 20px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .affirmation {
@@ -117,6 +121,29 @@ header {
     line-height: 1.5;
     animation: fadeInAffirmation 1s ease-in;
     margin: 0;
+    flex: 1;
+}
+
+.voice-btn {
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: white;
+    font-size: 1.3em;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.voice-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.voice-btn.active {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes fadeInAffirmation {

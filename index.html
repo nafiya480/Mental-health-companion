@@ -10,9 +10,23 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <div class="header-content">
-                <h1 class="logo">🧠 MindCare</h1>
-                <p class="tagline">Your Personal Mental Health Companion</p>
+            <div class="header-top">
+                <div class="header-content">
+                    <h1 class="logo">🧠 MindCare</h1>
+                    <p class="tagline" id="tagline">Your Personal Mental Health Companion</p>
+                </div>
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <label for="languageSelect">🌍 Language:</label>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    </select>
+                </div>
             </div>
             <!-- Daily Affirmation -->
             <div class="affirmation-section">
@@ -26,40 +40,40 @@
             <section id="emotionScreen" class="screen active">
                 <div class="emotion-selector">
                     <div class="greeting-message">
-                        <h2>How are you feeling today?</h2>
-                        <p>Select an emotion to get personalized support and activities</p>
+                        <h2 id="greetingTitle">How are you feeling today?</h2>
+                        <p id="greetingSubtitle">Select an emotion to get personalized support and activities</p>
                     </div>
                     
                     <div class="emotion-grid">
                         <button class="emotion-btn" data-emotion="stressed">
                             <span class="emoji">😣</span>
-                            <span class="label">Stressed</span>
-                            <span class="description">Feeling overwhelmed by pressure</span>
+                            <span class="label" data-i18n="emotion_stressed">Stressed</span>
+                            <span class="description" data-i18n="emotion_stressed_desc">Feeling overwhelmed by pressure</span>
                         </button>
                         <button class="emotion-btn" data-emotion="anxious">
                             <span class="emoji">😟</span>
-                            <span class="label">Anxious</span>
-                            <span class="description">Worried or nervous about things</span>
+                            <span class="label" data-i18n="emotion_anxious">Anxious</span>
+                            <span class="description" data-i18n="emotion_anxious_desc">Worried or nervous about things</span>
                         </button>
                         <button class="emotion-btn" data-emotion="sad">
                             <span class="emoji">😢</span>
-                            <span class="label">Sad</span>
-                            <span class="description">Feeling down or melancholic</span>
+                            <span class="label" data-i18n="emotion_sad">Sad</span>
+                            <span class="description" data-i18n="emotion_sad_desc">Feeling down or melancholic</span>
                         </button>
                         <button class="emotion-btn" data-emotion="tired">
                             <span class="emoji">😴</span>
-                            <span class="label">Tired</span>
-                            <span class="description">Exhausted or lacking energy</span>
+                            <span class="label" data-i18n="emotion_tired">Tired</span>
+                            <span class="description" data-i18n="emotion_tired_desc">Exhausted or lacking energy</span>
                         </button>
                         <button class="emotion-btn" data-emotion="overwhelmed">
                             <span class="emoji">😫</span>
-                            <span class="label">Overwhelmed</span>
-                            <span class="description">Too much to handle right now</span>
+                            <span class="label" data-i18n="emotion_overwhelmed">Overwhelmed</span>
+                            <span class="description" data-i18n="emotion_overwhelmed_desc">Too much to handle right now</span>
                         </button>
                         <button class="emotion-btn" data-emotion="lonely">
                             <span class="emoji">🥺</span>
-                            <span class="label">Lonely</span>
-                            <span class="description">Missing connection with others</span>
+                            <span class="label" data-i18n="emotion_lonely">Lonely</span>
+                            <span class="description" data-i18n="emotion_lonely_desc">Missing connection with others</span>
                         </button>
                     </div>
                 </div>
@@ -68,18 +82,18 @@
             <!-- Breathing Exercise Screen -->
             <section id="breathingScreen" class="screen">
                 <div class="breathing-container">
-                    <button class="back-btn" id="breathingBackBtn">← Back</button>
+                    <button class="back-btn" id="breathingBackBtn" data-i18n="btn_back">← Back</button>
                     <div class="breathing-content">
-                        <h2>Guided Breathing Exercise</h2>
+                        <h2 id="breathingTitle" data-i18n="breathing_title">Guided Breathing Exercise</h2>
                         <p class="breathing-instruction" id="breathingInstruction">Get ready...</p>
                         <div class="breathing-circle-container">
                             <div class="breathing-circle" id="breathingCircle"></div>
                         </div>
                         <div class="breathing-controls">
-                            <button id="startBreathingBtn" class="control-btn active-btn">Start Exercise</button>
-                            <button id="stopBreathingBtn" class="control-btn" disabled>Stop Exercise</button>
+                            <button id="startBreathingBtn" class="control-btn active-btn" data-i18n="btn_start">Start Exercise</button>
+                            <button id="stopBreathingBtn" class="control-btn" disabled data-i18n="btn_stop">Stop Exercise</button>
                         </div>
-                        <p class="breathing-info">Breathing exercise: 4 seconds inhale, 4 seconds hold, 4 seconds exhale</p>
+                        <p class="breathing-info" id="breathingInfo" data-i18n="breathing_info">Breathing exercise: 4 seconds inhale, 4 seconds hold, 4 seconds exhale</p>
                     </div>
                 </div>
             </section>
@@ -87,7 +101,7 @@
             <!-- Recommendations Screen -->
             <section id="recommendationScreen" class="screen">
                 <div class="recommendation-container">
-                    <button class="back-btn" id="backBtn">← Back</button>
+                    <button class="back-btn" id="backBtn" data-i18n="btn_back">← Back</button>
                     <div class="emotion-header">
                         <h2 id="emotionTitle"></h2>
                         <p id="emotionMessage" class="emotion-message"></p>
@@ -95,37 +109,37 @@
                     
                     <!-- Breathing Exercise Quick Access -->
                     <div class="quick-breathing">
-                        <button id="quickBreathingBtn" class="breathing-quick-btn">
+                        <button id="quickBreathingBtn" class="breathing-quick-btn" data-i18n="btn_breathing">
                             <span>🫁 Try a Breathing Exercise</span>
                         </button>
                     </div>
 
                     <div class="recommendations">
-                        <h3>Recommended Activities</h3>
+                        <h3 id="recommendedActivitiesTitle" data-i18n="recommended_activities">Recommended Activities</h3>
                         <div class="activity-grid">
                             <a href="javascript:void(0)" class="activity-card" id="readingCard">
                                 <span class="icon">📚</span>
-                                <h4>Reading</h4>
-                                <p>Explore inspiring articles and stories</p>
-                                <small>External link</small>
+                                <h4 data-i18n="activity_reading">Reading</h4>
+                                <p data-i18n="activity_reading_desc">Explore inspiring articles and stories</p>
+                                <small data-i18n="label_external">External link</small>
                             </a>
                             <a href="javascript:void(0)" class="activity-card" id="musicCard">
                                 <span class="icon">🎵</span>
-                                <h4>Music</h4>
-                                <p>Listen to curated relaxing playlists</p>
-                                <small>External link</small>
+                                <h4 data-i18n="activity_music">Music</h4>
+                                <p data-i18n="activity_music_desc">Listen to curated relaxing playlists</p>
+                                <small data-i18n="label_external">External link</small>
                             </a>
                             <a href="javascript:void(0)" class="activity-card" id="gameCard">
                                 <span class="icon">🎮</span>
-                                <h4>Games</h4>
-                                <p>Play calming browser games</p>
-                                <small>External link</small>
+                                <h4 data-i18n="activity_games">Games</h4>
+                                <p data-i18n="activity_games_desc">Play calming browser games</p>
+                                <small data-i18n="label_external">External link</small>
                             </a>
                             <button class="activity-card" id="whiteboardCard">
                                 <span class="icon">🎨</span>
-                                <h4>Drawing</h4>
-                                <p>Express yourself through art</p>
-                                <small>Canvas tool</small>
+                                <h4 data-i18n="activity_drawing">Drawing</h4>
+                                <p data-i18n="activity_drawing_desc">Express yourself through art</p>
+                                <small data-i18n="label_canvas">Canvas tool</small>
                             </button>
                         </div>
                     </div>
@@ -137,21 +151,21 @@
                 <div class="whiteboard-container">
                     <div class="whiteboard-header">
                         <div class="header-left">
-                            <button class="back-btn" id="whiteboardBackBtn">← Back</button>
-                            <h2>Express Yourself 🎨</h2>
+                            <button class="back-btn" id="whiteboardBackBtn" data-i18n="btn_back">← Back</button>
+                            <h2 id="whiteboardTitle" data-i18n="whiteboard_title">Express Yourself 🎨</h2>
                         </div>
                         <div class="whiteboard-controls">
                             <div class="control-group">
-                                <label for="colorPicker">Color:</label>
+                                <label for="colorPicker" data-i18n="label_color">Color:</label>
                                 <input type="color" id="colorPicker" value="#000000" title="Pick Color">
                             </div>
                             <div class="control-group">
-                                <label for="brushSize">Size: <span id="brushSizeValue">5</span>px</label>
+                                <label for="brushSize" data-i18n="label_size">Size: <span id="brushSizeValue">5</span>px</label>
                                 <input type="range" id="brushSize" min="1" max="50" value="5" title="Brush Size">
                             </div>
-                            <button id="eraserBtn" class="control-btn" title="Toggle Eraser">🧹 Eraser</button>
-                            <button id="clearBtn" class="control-btn" title="Clear Canvas">🗑️ Clear</button>
-                            <button id="downloadBtn" class="control-btn" title="Download Drawing">⬇️ Download</button>
+                            <button id="eraserBtn" class="control-btn" title="Toggle Eraser" data-i18n="btn_eraser">🧹 Eraser</button>
+                            <button id="clearBtn" class="control-btn" title="Clear Canvas" data-i18n="btn_clear">🗑️ Clear</button>
+                            <button id="downloadBtn" class="control-btn" title="Download Drawing" data-i18n="btn_download">⬇️ Download</button>
                         </div>
                     </div>
                     <canvas id="whiteboardCanvas"></canvas>
@@ -161,7 +175,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>💚 Remember: Taking care of yourself is not selfish. You deserve kindness and support.</p>
+            <p id="footerText" data-i18n="footer_text">💚 Remember: Taking care of yourself is not selfish. You deserve kindness and support.</p>
         </footer>
     </div>
 
